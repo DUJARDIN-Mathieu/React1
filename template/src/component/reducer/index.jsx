@@ -1,11 +1,12 @@
 const total = {
-    totalAlimentation: '0',
-    totalTransport: '0',
-    totalSante: '0',
-    totalLogement: '0',
-    totalDivertissement:'0',
-    totalEducation: '0',
-    totalAutres: '0'
+    totalAlimentation: 0,
+    totalTransport: 0,
+    totalSante: 0,
+    totalLogement: 0,
+    totalDivertissement:0,
+    totalEducation: 0,
+    totalAutres: 0,
+    totalFinal: 0
 }
 
 const depense = {
@@ -16,8 +17,7 @@ const depense = {
 
 export const initialeState = {
     depenses: [],
-    depense,
-    totals : [],
+    depense,  
     total
 }
 
@@ -27,25 +27,15 @@ const reducer = (state,action) => {
 
             const depenses = [...state.depenses]
             depenses.push(state.depense)
-            const total = [...state.totals]
-            depense.categorie === 'Alimentation' ? 
-                total.totalAlimentation = parseFloat(total.totalAlimentation) + parseFloat(depense.montant) :
-            depense.categorie === 'Logement' ? 
-                total.totalLogement = parseFloat(total.totalLogement) + parseFloat(depense.montant) :
-            depense.categorie === 'Transport' ? 
-                total.totalTransport = parseFloat(total.totalTransport) + parseFloat(depense.montant) :
-            depense.categorie === 'Divertissement' ? 
-                total.totalDivertissement = parseFloat(total.totalDivertissement) + parseFloat(depense.montant) :
-            depense.categorie === 'Santé' ? 
-                total.totalSante = parseFloat(total.totalSante) + parseFloat(depense.montant) :
-            depense.categorie === 'Education' ? 
-                total.totalEducation = parseFloat(total.totalEducation) + parseFloat(depense.montant) :           
-            total.totalAutres = parseFloat(total.totalAutres) + parseFloat(depense.montant) 
-            
+
+            const name = 'total' + state.depense.categorie 
+            total[name] = parseFloat(total[name]) + (parseFloat(state.depense.montant) / 2)
+            total['totalFinal'] = parseFloat(total['totalFinal']) + (parseFloat(state.depense.montant) / 2)
+
             return {
                 depenses,
                 depense,
-                totals: total
+                total
             }
 
         case 'changeLibelle':
@@ -76,7 +66,7 @@ const reducer = (state,action) => {
             }
         
         case 'removeDepense':
-            const newDepenses = state.Depenses.filter((Depense) => Depense !== action.payload)
+            const newDepenses = state.depenses.filter((Depense) => Depense !== action.payload)
 
             return {
                 ...state,

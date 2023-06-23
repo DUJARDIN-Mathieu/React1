@@ -22,7 +22,7 @@ const Form = () => {
                     <input id={"libelle"} type={"text"} value={state.depense.libelle} name={"changeLibelle"} placeholder="Libelle" onChange={handleChange}/>
                 </div>
                 <div>
-                    <input id={"montant"} type={"text"} value={state.depense.montant} name={"changeMontant"} placeholder="Montant" onChange={handleChange}/>
+                    <input id={"montant"} type={"text"}  value={state.depense.montant} name={"changeMontant"} placeholder="Montant" onChange={handleChange}/>
                 </div>
                 <div>
                     <select id={"categorie"} value={state.depense.categorie} name={"changeCategorie"} onChange={handleSelectChange}>

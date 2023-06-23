@@ -10,8 +10,13 @@ function Depense({value}) {
     return (
         <>
             <li>
-                {value.libelle} : {value.montant}
-                <button onClick={() => dispatch({type: 'removeDepense', payload: value})}>X</button>
+                <div>
+                    <div>
+                        Categorie: {value.categorie}
+                    </div>
+                    {value.libelle} : {value.montant}
+                    <button onClick={() => dispatch({type: 'removeDepense', payload: value})}>X</button>
+                </div>
             </li>
         </>
     )
