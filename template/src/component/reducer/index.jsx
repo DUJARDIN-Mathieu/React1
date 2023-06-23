@@ -17,7 +17,8 @@ const depense = {
 export const initialeState = {
     depenses: [],
     depense,
-    totals : total
+    totals : [],
+    total
 }
 
 const reducer = (state,action) => {
