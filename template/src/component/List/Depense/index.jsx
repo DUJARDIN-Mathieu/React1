@@ -9,15 +9,22 @@ function Depense({value}) {
 
     return (
         <>
-            <li>
+            <div className="depenseHistory">
                 <div>
-                    <div>
-                        Categorie: {value.categorie}
+                    <div className={"card category__header"}>
+                        {value.categorie}
                     </div>
-                    {value.libelle} : {value.montant}
-                    <button onClick={() => dispatch({type: 'removeDepense', payload: value})}>X</button>
+                    <div className={"card category__body"}>
+                        <span className="card libelle">{value.libelle}</span> : {value.montant}
+                        
+                    </div>
+                    <div className={"button__delete"}>
+
+                            <button className={"delete"} onClick={() => dispatch({type: 'removeDepense', payload: value})}>X</button>
+
+                    </div>
                 </div>
-            </li>
+            </div>
         </>
     )
 }

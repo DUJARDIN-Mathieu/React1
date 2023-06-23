@@ -6,7 +6,7 @@ const total = {
     totalDivertissement:0,
     totalEducation: 0,
     totalAutres: 0,
-    totalFinal: 0
+    totalTotal: 0
 }
 
 const depense = {
@@ -30,7 +30,7 @@ const reducer = (state,action) => {
 
             const name = 'total' + state.depense.categorie 
             total[name] = parseFloat(total[name]) + (parseFloat(state.depense.montant) / 2)
-            total['totalFinal'] = parseFloat(total['totalFinal']) + (parseFloat(state.depense.montant) / 2)
+            total['totalTotal'] = parseFloat(total['totalTotal']) + (parseFloat(state.depense.montant) / 2)
 
             return {
                 depenses,
@@ -73,6 +73,9 @@ const reducer = (state,action) => {
                 depenses: newDepenses
 
             }
+
+        
+
 
         default :
             return state

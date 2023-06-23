@@ -17,15 +17,15 @@ const Form = () => {
 
     return (
         <>
-            <div>
+            <div className="form">
                 <div>
-                    <input id={"libelle"} type={"text"} value={state.depense.libelle} name={"changeLibelle"} placeholder="Libelle" onChange={handleChange}/>
+                    <input className={"input"} id={"libelle"} type={"text"} value={state.depense.libelle} name={"changeLibelle"} placeholder="Libelle" onChange={handleChange}/>
                 </div>
                 <div>
-                    <input id={"montant"} type={"text"}  value={state.depense.montant} name={"changeMontant"} placeholder="Montant" onChange={handleChange}/>
+                    <input className={"input"} id={"montant"} type={"number"} step={"0.01"} value={state.depense.montant} name={"changeMontant"} placeholder="Montant" onChange={handleChange}/>
                 </div>
                 <div>
-                    <select id={"categorie"} value={state.depense.categorie} name={"changeCategorie"} onChange={handleSelectChange}>
+                    <select className="input" id={"categorie"} value={state.depense.categorie} name={"changeCategorie"} onChange={handleSelectChange}>
                         <option value={"Alimentation"}>Alimentation</option>
                         <option value={"Logement"}>Logement</option>
                         <option value={"Transport"}>Transport</option>
@@ -35,7 +35,7 @@ const Form = () => {
                         <option value={"Autres"}>Autres</option>
                     </select>
                 </div>
-                <button onClick={() => dispatch({ type: 'ajoutDepense' })} >Ajouter</button>
+                <button className="add" onClick={() => dispatch({ type: 'ajoutDepense' })} >Ajouter</button>
             </div>
 
         </>
